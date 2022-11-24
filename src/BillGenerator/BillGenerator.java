@@ -6,15 +6,18 @@ public class BillGenerator {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("По очереди введите Название, Цену и Количество закупленных вами товаров: ");
+
+        // TODO: 25.11.2022 заменить цикл на файловое дополнение
         while (true) {
             Bill position = new Bill(scan.nextLine(), scan.nextInt(), scan.nextInt());
             position.getReadyBill();
 
             System.out.println("Вы хотите ввести еще товары? Y - да, N - нет");
-            if (scan.nextLine() == "Y") {
+            String idx = scan.nextLine();
+            if (idx == "Y") {
                 Bill position1 = new Bill(scan.nextLine(), scan.nextInt(), scan.nextInt());
                 position1.getReadyBill();
-            } else if (scan.nextLine() == "N") {
+            } else if (idx == "N") {
                 System.out.println("Завершение программы");
                 break;
             }
